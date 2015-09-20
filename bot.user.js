@@ -42,10 +42,10 @@ Array.prototype.peek = function() {
     return this[this.length - 1];
 };
 
-var sha = "efde0488cc2cc176db48dd23b28a20b90314352b";
+var sha = "c178016a1386817dca295eb05c6b35016da59f5e";
 function getLatestCommit() {
     window.jQuery.ajax({
-            url: "https://api.github.com/repos/HaydariGeceler/Agario3/git/refs/heads/master",
+            url: "https://api.github.com/repos/HaydariGeceler/Agar4/git/refs/heads/master",
             cache: false,
             dataType: "jsonp"
         }).done(function(data) {
@@ -65,7 +65,7 @@ function getLatestCommit() {
                 window.jQuery("#" + prefix + "Dialog").show();
             }
 
-            $.get('https://raw.githubusercontent.com/HaydariGeceler/Agario3/master/bot.user.js?' + Math.floor((Math.random() * 1000000) + 1), function(data) {
+            $.get('https://raw.githubusercontent.com/HaydariGeceler/agar4/master/bot.user.js?' + Math.floor((Math.random() * 1000000) + 1), function(data) {
                 var latestVersion = data.replace(/(\r\n|\n|\r)/gm,"");
                 latestVersion = latestVersion.substring(latestVersion.indexOf("// @version")+11,latestVersion.indexOf("// @grant"));
 
@@ -74,7 +74,7 @@ function getLatestCommit() {
                 
                 if(latestVersion > myVersion)
                 {
-                    update("haydariBot", "bot.user.js", "https://github.com/HaydariGeceler/Agario3/blob/" + sha + "/bot.user.js/");
+                    update("haydariBot", "bot.user.js", "https://github.com/HaydariGeceler/agar4/blob/" + sha + "/bot.user.js/");
                 }
                 console.log('Current bot.user.js Version: ' + myVersion + " on Github: " + latestVersion);
             });

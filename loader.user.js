@@ -8,30 +8,30 @@
 // @grant       none
 // ==/UserScript==
 var haydariLoaderVersion = 1.3;
-var sha = "efde0488cc2cc176db48dd23b28a20b90314352b";
+var sha = "c178016a1386817dca295eb05c6b35016da59f5e";
 
 function getLatestCommit() {
 	window.jQuery.ajax({
-		url: "https://api.github.com/repos/HaydariGeceler/Agario3/git/refs/heads/master",
+		url: "https://api.github.com/repos/HaydariGeceler/Agar4/git/refs/heads/master",
 		cache: false,
 		dataType: "jsonp"
 	}).done(function(data) {
 		console.dir(data["data"])
 		console.log("hmm: " + data["data"]["object"]["sha"]);
 		sha = data["data"]["object"]["sha"];;
-		window.jQuery.get('https://raw.githubusercontent.com/HaydariGeceler/Agario3/master/launcher.user.js?' + Math.floor((Math.random() * 1000000) + 1), function(data) {
+		window.jQuery.get('https://raw.githubusercontent.com/HaydariGeceler/agar4/master/launcher.user.js?' + Math.floor((Math.random() * 1000000) + 1), function(data) {
 			var latestVersion = data.replace(/(\r\n|\n|\r)/gm, "");
 			latestVersion = latestVersion.substring(latestVersion.indexOf("// @version") + 11, latestVersion.indexOf("// @grant"));
 			latestVersion = parseFloat(latestVersion + 0.0000);
-			var script1 = "https://cdn.rawgit.com/HaydariGeceler/Agario3/" + sha + "/launcher.user.js";
+			var script1 = "https://cdn.rawgit.com/HaydariGeceler/agar4/" + sha + "/launcher.user.js";
 			console.log("Script: " + script1);
 			window.jQuery("body").append('<script type="text/javascript" src="' + script1 + '"></script>');
 		});
-		window.jQuery.get('https://raw.githubusercontent.com/HaydariGeceler/Agario3/master/bot.user.js?' + Math.floor((Math.random() * 1000000) + 1), function(data) {
+		window.jQuery.get('https://raw.githubusercontent.com/HaydariGeceler/agar4/master/bot.user.js?' + Math.floor((Math.random() * 1000000) + 1), function(data) {
 			var latestVersion = data.replace(/(\r\n|\n|\r)/gm, "");
 			latestVersion = latestVersion.substring(latestVersion.indexOf("// @version") + 11, latestVersion.indexOf("// @grant"));
 			latestVersion = parseFloat(latestVersion + 0.0000);
-			var script2 = "https://cdn.rawgit.com/HaydariGeceler/Agario3/" + sha + "/bot.user.js";
+			var script2 = "https://cdn.rawgit.com/HaydariGeceler/agar4/" + sha + "/bot.user.js";
 			console.log("Script: " + script2);
 			window.jQuery("body").append('<script type="text/javascript" src="' + script2 + '"></script>');
 		});
@@ -47,13 +47,13 @@ function getLatestCommit() {
 			});
 			window.jQuery("#" + prefix + "Dialog").show();
 		}
-		window.jQuery.get('https://raw.githubusercontent.com/HaydariGeceler/Agario3/master/loader.user.js?' + Math.floor((Math.random() * 1000000) + 1), function(data) {
+		window.jQuery.get('https://raw.githubusercontent.com/HaydariGeceler/agar4/master/loader.user.js?' + Math.floor((Math.random() * 1000000) + 1), function(data) {
 			var latestVersion = data.replace(/(\r\n|\n|\r)/gm, "");
 			latestVersion = latestVersion.substring(latestVersion.indexOf("// @version") + 11, latestVersion.indexOf("// @grant"));
 			latestVersion = parseFloat(latestVersion + 0.0000);
 			var myVersion = parseFloat(haydariLoaderVersion + 0.0000);
 			if (latestVersion > myVersion) {
-				update("haydariLoader", "loader.user.js", "https://github.com/HaydariGeceler/Agario3/blob/master/loader.user.js/");
+				update("haydariLoader", "loader.user.js", "https://github.com/HaydariGeceler/agar4/blob/master/loader.user.js/");
 			}
 			console.log('Current loader.user.js Version: ' + myVersion + " on Github: " + latestVersion);
 		});
