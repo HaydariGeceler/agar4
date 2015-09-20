@@ -1,5 +1,5 @@
 /*The MIT License (MIT)
-Copyright (c) 2015 Apostolique
+Copyright (c) 2015 haydaritolique
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
@@ -23,7 +23,7 @@ SOFTWARE.*/
 // @version     4.124
 // @grant       none
 // ==/UserScript==
-var aposLauncherVersion = 4.124;
+var haydariLauncherVersion = 4.124;
 
 Number.prototype.mod = function(n) {
     return ((this % n) + n) % n;
@@ -62,10 +62,10 @@ function getLatestCommit() {
             latestVersion = latestVersion.substring(latestVersion.indexOf("// @version") + 11, latestVersion.indexOf("// @grant"));
 
             latestVersion = parseFloat(latestVersion + 0.0000);
-            var myVersion = parseFloat(aposLauncherVersion + 0.0000);
+            var myVersion = parseFloat(haydariLauncherVersion + 0.0000);
 
             if (latestVersion > myVersion) {
-                update("aposLauncher", "launcher.user.js", "https://github.com/HaydariGeceler/Agario3/blob/" + sha + "/launcher.user.js/");
+                update("haydariLauncher", "launcher.user.js", "https://github.com/HaydariGeceler/Agario3/blob/" + sha + "/launcher.user.js/");
             }
             console.log('Current launcher.user.js Version: ' + myVersion + " on Github: " + latestVersion);
         });
@@ -645,7 +645,7 @@ console.log("Running Bot Launcher!");
         //UPDATE
         if (getPlayer().length == 0 && !reviving && ~~(getCurrentScore() / 100) > 0) {
             console.log("Dead: " + ~~(getCurrentScore() / 100));
-            apos('send', 'pageview');
+            haydari('send', 'pageview');
         }
 
         if (getPlayer().length == 0) {
@@ -983,7 +983,7 @@ console.log("Running Bot Launcher!");
 
         var debugStrings = [];
         debugStrings.push("Bot: " + window.botList[botIndex].name);
-        debugStrings.push("Launcher: AposLauncher " + aposLauncherVersion);
+        debugStrings.push("Launcher: haydariLauncher " + haydariLauncherVersion);
         debugStrings.push("T - Bot: " + (!toggle ? "On" : "Off"));
         debugStrings.push("R - Lines: " + (!toggleDraw ? "On" : "Off"));
 
@@ -2428,10 +2428,10 @@ console.log("Running Bot Launcher!");
     a.async = 1;
     a.src = g;
     m.parentNode.insertBefore(a, m)
-})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'apos');
+})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'haydari');
 
-apos('create', 'UA-64394184-1', 'auto');
-apos('send', 'pageview');
+haydari('create', 'UA-64394184-1', 'auto');
+haydari('send', 'pageview');
 
 window.ignoreStream = false;
 window.refreshTwitch = function() {
@@ -2441,12 +2441,12 @@ window.refreshTwitch = function() {
         dataType: "jsonp"
     }).done(function(data) {
         if (data["stream"] == null) {
-            //console.log("Apostolique is not online!");
+            //console.log("haydaritolique is not online!");
             window.setMessage([]);
             window.onmouseup = function() {};
             window.ignoreStream = false;
         } else {
-            //console.log("Apostolique is online!");
+            //console.log("haydaritolique is online!");
             if (!window.ignoreStream) {
                 window.setMessage(["HULOO"]);
                 window.onmouseup = function() {

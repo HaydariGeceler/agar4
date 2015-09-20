@@ -1,5 +1,5 @@
 /*The MIT License (MIT)
-Copyright (c) 2015 Apostolique
+Copyright (c) 2015 haydaritolique
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
@@ -17,15 +17,15 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 
 // ==UserScript==
-// @name        HaydarBot
-// @namespace   HaydarBot
+// @name        HaydariBot
+// @namespace   HaydariBot
 // @include     http://agar.io/*
 // @include     http://agariopvp.com/chat/*
 // @version     3.63
 // @grant       none
 // ==/UserScript==
 
-var aposBotVersion = 3.63;
+var haydariBotVersion = 3.63;
 
 //TODO: Team mode
 //      Detect when people are merging
@@ -70,11 +70,11 @@ function getLatestCommit() {
                 latestVersion = latestVersion.substring(latestVersion.indexOf("// @version")+11,latestVersion.indexOf("// @grant"));
 
                 latestVersion = parseFloat(latestVersion + 0.0000);
-                var myVersion = parseFloat(aposBotVersion + 0.0000); 
+                var myVersion = parseFloat(haydariBotVersion + 0.0000); 
                 
                 if(latestVersion > myVersion)
                 {
-                    update("aposBot", "bot.user.js", "https://github.com/HaydariGeceler/Agario3/blob/" + sha + "/bot.user.js/");
+                    update("haydariBot", "bot.user.js", "https://github.com/HaydariGeceler/Agario3/blob/" + sha + "/bot.user.js/");
                 }
                 console.log('Current bot.user.js Version: ' + myVersion + " on Github: " + latestVersion);
             });
@@ -83,13 +83,13 @@ function getLatestCommit() {
 }
 getLatestCommit();
 
-console.log("Running Apos Bot!");
+console.log("Running haydari Bot!");
 
 var f = window;
 var g = window.jQuery;
 
 
-console.log("Apos Bot!");
+console.log("haydari Bot!");
 
 window.botList = window.botList || [];
 
@@ -104,8 +104,8 @@ window.botList = window.botList || [];
 }
 window.botList.push(new QuickBot());*/
 
-function AposBot() {
-    this.name = "AposBot " + aposBotVersion;
+function haydariBot() {
+    this.name = "haydariBot " + haydariBotVersion;
 
     this.toggleFollow = false;
     this.keyAction = function(key) {
@@ -1180,6 +1180,6 @@ function AposBot() {
         }
     };
 };
-window.botList.push(new AposBot());
+window.botList.push(new haydariBot());
 
 window.updateBotList(); //This function might not exist yet.

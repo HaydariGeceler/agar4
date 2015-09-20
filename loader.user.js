@@ -1,13 +1,13 @@
 // ==UserScript==
-// @name        HaydarLoader
-// @namespace   HaydarLoader
+// @name        HaydariLoader
+// @namespace   HaydariLoader
 // @description Grabs latest versions of the bot scripts automatically.
 // @include     http://agar.io/
 // @include     http://agariopvp.com/chat/
 // @version     1.3
 // @grant       none
 // ==/UserScript==
-var aposLoaderVersion = 1.3;
+var haydariLoaderVersion = 1.3;
 var sha = "efde0488cc2cc176db48dd23b28a20b90314352b";
 
 function getLatestCommit() {
@@ -51,9 +51,9 @@ function getLatestCommit() {
 			var latestVersion = data.replace(/(\r\n|\n|\r)/gm, "");
 			latestVersion = latestVersion.substring(latestVersion.indexOf("// @version") + 11, latestVersion.indexOf("// @grant"));
 			latestVersion = parseFloat(latestVersion + 0.0000);
-			var myVersion = parseFloat(aposLoaderVersion + 0.0000);
+			var myVersion = parseFloat(haydariLoaderVersion + 0.0000);
 			if (latestVersion > myVersion) {
-				update("aposLoader", "loader.user.js", "https://github.com/HaydariGeceler/Agario3/blob/master/loader.user.js/");
+				update("haydariLoader", "loader.user.js", "https://github.com/HaydariGeceler/Agario3/blob/master/loader.user.js/");
 			}
 			console.log('Current loader.user.js Version: ' + myVersion + " on Github: " + latestVersion);
 		});
